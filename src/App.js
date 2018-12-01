@@ -33,10 +33,11 @@ class App extends Component {
   };
 
   handleDelete = async post => {
-    await axios.delete(`${apiEndPoint}/${post.id}`);
-
+    //Optimistic UPDATE - Hoping nothing will go wrong during server update
     const posts = this.state.posts.filter(postItem => postItem.id !== post.id);
     this.setState({ posts });
+
+    await axios.delete(`${apiEndPoint}/${post.id}`);
   };
 
   render() {
