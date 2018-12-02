@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { TaostContainer } from "react-toastify";
 import http from "./services/httpService";
 import config from "./config.json";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 class App extends Component {
