@@ -3,20 +3,6 @@ import "./App.css";
 import axios from "axios";
 import { endianness } from "os";
 
-axios.interceptors.response.use(null, error => {
-  const expectedError =
-    error.response &&
-    error.response.state >= 400 &&
-    error.response.status <= 500;
-
-  if (!expectedError) {
-    //log the error for DEVs
-    console.log("Logging the error: ", error);
-    alert("An unexpected error occurred.");
-  }
-  return Promise.reject(error);
-});
-
 const apiEndPoint = "https://jsonplaceholder.typicode.com/posts";
 class App extends Component {
   state = {
